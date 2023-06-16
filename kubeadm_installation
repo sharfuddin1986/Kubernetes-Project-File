@@ -9,7 +9,7 @@
   
   Step3 :
     
-    https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
+    Link-https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
     
     sudo apt-get update
     sudo apt-get install -y apt-transport-https ca-certificates curl        
@@ -21,6 +21,55 @@
     All command run on master machine and client_node for installation of kubeadm
     
     Now i want create cluster in Master machine.All command will run on master.slave is one command for connect only 
+    Link-https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
+    
+    kubeadm init --apiserver-advertise-address=private ip of master machine --pod-network-cidr=192.168.0.0/16 
+    after give error for Ram and cpu not meet minimum requirment.2gb ram and 2 core cpu then i want ignore error add flag
+    
+    kubeadm init --apiserver-advertise-address=private ip of master machine --pod-network-cidr=192.168.0.0/16 --ignore-preflight-errors=Mem,NUMCPU
+    
+    kubernetes work on pod network it has own pod network cidr range define calico through 192.168.0.0/16 it is fix and its pluging need to choose like calico,wavenet,romana all have 
+    different different network cidr range
+    
+    
+    After that get the link for Node joining
+    
+    kubeadm join 172.31.90.84:6443 --token i3i8qy.s8586ur6zqlk0n0r \
+        --discovery-token-ca-cert-hash sha256:8e8620b7c4d1b813f4e911a7ca51c53876d391ef224808f6907f1a22dae2c57d
+        
+        
+    GO to the client node run the link
+    
+    kubeadm join 172.31.90.84:6443 --token i3i8qy.s8586ur6zqlk0n0r \
+        --discovery-token-ca-cert-hash sha256:8e8620b7c4d1b813f4e911a7ca51c53876d391ef224808f6907f1a22dae2c57d
+        
+    get message This node has joined the cluster:
+    
+    Run command in Master machine to see the node list
+    
+    kubectl get nodes
+    
+    after get error localhost 8080 was refused then we need run three command on master machine cluster configure properly
+    
+    Command1 :
+    
+    mkdir -p $HOME/ .kube
+    
+    Command2 :
+    
+    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+    
+    Command3 :
+    
+    sudo chown $(id -u):$(id -g) $HOME/.kube/config
+    
+ 
+        
+    
+    
+
+    
+
   
   
   
