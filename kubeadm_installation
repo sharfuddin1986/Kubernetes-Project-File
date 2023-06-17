@@ -15,6 +15,8 @@ sudo swapoff -a
 Step1 :
  
     Create two Ec2 instance one is Master and  another is client_node
+    sudo hostnamectl set-hostname "manager_machine"
+    sudo hostnamectl set-hostname "worker_machine_one"
  
   Step2 :
     
@@ -24,7 +26,7 @@ Step1 :
     
     Link-https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
     
-    All command run on master machine and client_node for installation of kubeadm
+   
 
     sudo apt-get update
     sudo apt-get install -y apt-transport-https ca-certificates curl        
@@ -32,7 +34,28 @@ Step1 :
     echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
     apt-get update 
     sudo apt-get install -y kubelet kubeadm kubectl
-    
+    sudo apt-mark hold docker-ce kubelet kubeadm kubectl
+    echo "net.bridge.bridge-nf-call-iptables=1" | sudo tee -a /etc/sysctl.conf
+    sudo sysctl -p
+   
+    cat <<EOF | sudo tee /etc/docker/daemon.json
+{
+  "exec-opts": ["native.cgroupdriver=systemd"],
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "100m"
+  },
+  "storage-driver": "overlay2"
+}
+EOF
+
+   sudo systemctl enable docker
+   sudo systemctl daemon-reload
+   sudo systemctl restart docker
+
+
+
+#### Run the above commands on all the machines (master, slave machines) ####
 
     
     Now i want create cluster in Master machine.All command will run on master.slave is one command for connect only 
@@ -54,19 +77,6 @@ Step1 :
         --discovery-token-ca-cert-hash sha256:8e8620b7c4d1b813f4e911a7ca51c53876d391ef224808f6907f1a22dae2c57d
         
         
-    GO to the client node run the link
-    
-    kubeadm join 172.31.90.84:6443 --token i3i8qy.s8586ur6zqlk0n0r \
-        --discovery-token-ca-cert-hash sha256:8e8620b7c4d1b813f4e911a7ca51c53876d391ef224808f6907f1a22dae2c57d
-        
-    get message This node has joined the cluster:
-    
-    Run command in Master machine to see the node list
-    
-    kubectl get nodes
-    
-    after get error localhost 8080 was refused then we need run three command on master machine cluster configure properly
-    
     Command1 :
     
     mkdir -p $HOME/ .kube
@@ -78,6 +88,26 @@ Step1 :
     Command3 :
     
     sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+#### Run the above commands on all the master machine only ####
+
+
+#### Run the below command on all the slave machines ####
+
+#### This is an example command ####
+
+    
+    kubeadm join 172.31.90.84:6443 --token i3i8qy.s8586ur6zqlk0n0r \
+        --discovery-token-ca-cert-hash sha256:8e8620b7c4d1b813f4e911a7ca51c53876d391ef224808f6907f1a22dae2c57d
+        
+    get message This node has joined the cluster:
+    
+    Run command in Master machine to see the node list
+    
+    kubectl get nodes
+    
+    
+    
     
  
         
