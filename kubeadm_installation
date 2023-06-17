@@ -88,6 +88,7 @@ EOF
     Command3 :
     
     sudo chown $(id -u):$(id -g) $HOME/.kube/config
+    
 
 #### Run the above commands on all the master machine only ####
 
@@ -105,17 +106,3 @@ EOF
     Run command in Master machine to see the node list
     
     kubectl get nodes
-    
-    
-    
-    
- 
-        
-    
-    
-
-    
-
-  
-  
-  
