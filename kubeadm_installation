@@ -11,6 +11,8 @@
     
     Link-https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
     
+    All command run on master machine and client_node for installation of kubeadm
+
     sudo apt-get update
     sudo apt-get install -y apt-transport-https ca-certificates curl        
     curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
@@ -18,9 +20,10 @@
     apt-get update 
     sudo apt-get install -y kubelet kubeadm kubectl
     
-    All command run on master machine and client_node for installation of kubeadm
+
     
     Now i want create cluster in Master machine.All command will run on master.slave is one command for connect only 
+
     Link-https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
     
     kubeadm init --apiserver-advertise-address=private ip of master machine --pod-network-cidr=192.168.0.0/16 
