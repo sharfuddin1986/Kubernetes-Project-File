@@ -12,7 +12,6 @@ Certain ports are open on your machines
 Swap disabled. You MUST disable swap in order for the kubelet to work properly.
 sudo swapoff -a
 
-
 Step1 :
  
     Create two Ec2 instance one is Master and  another is client_node
