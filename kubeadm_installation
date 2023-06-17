@@ -1,5 +1,19 @@
 ########    Kubeadm Installation   ############
- Step1 :
+ 
+Before you begin
+
+Minimum requirment of kubeadm
+
+2 GB or more of RAM per machine
+2 core CPUs or more
+Full network connectivity between all machines in the cluster (public or private network is fine
+Unique hostname, MAC address, and product_uuid for every node
+Certain ports are open on your machines
+Swap disabled. You MUST disable swap in order for the kubelet to work properly.
+sudo swapoff -a
+
+
+Step1 :
  
     Create two Ec2 instance one is Master and  another is client_node
  
