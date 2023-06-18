@@ -15,10 +15,18 @@
     aws --version
 
 3 : Create an IAM user with necessary permissions and programmatic access (Administrator access is recommended)
+    IAM-user-create-name-kops_user-next-Attach policy directly-Administrator-full acess-create
 
 4 : Generate the access key and secret for the above IAM user.
-7 : Login to AWS from the Kops EC2 instance using the below command
+    IAM user-security credential-Access key-cli-create and save the secret acess key 
+
+5 : Login to AWS from the Kops EC2 instance using the below command
     aws configure
+    Put access key and secret key then region eas-us-1 and ouput format is json
+
+
+
+
 8 : The above command will prompt for access key, secret access key, region and output format. Provide all the information
 9 : Create an S3 bucket - This bucket will be used to store the cluster related information
 10 : Create a hosted zone in Route53 - For the DNS, i am using Hostinger. This is where my DNS is registered.
