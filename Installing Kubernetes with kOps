@@ -4,12 +4,19 @@
     EC2 instance T2 micro 
 2 : Update the system
     sudo apt update -y
-3 : Install aws cli tool
+    curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64
+    chmod +x kops-linux-amd64
+    sudo mv kops-linux-amd64 /usr/local/bin/kops
+    kops     (check the kops status it is installed or not
+    kops version
+    apt-get update 
     sudo apt install awscli -y
-4 : validate if CLI is installed
+    validate if CLI is installed
     aws --version
-5 : Create an IAM user with necessary permissions and programmatic access (Administrator access is recommended)
-6 : Generate the access key and secret for the above IAM user.
+
+3 : Create an IAM user with necessary permissions and programmatic access (Administrator access is recommended)
+
+4 : Generate the access key and secret for the above IAM user.
 7 : Login to AWS from the Kops EC2 instance using the below command
     aws configure
 8 : The above command will prompt for access key, secret access key, region and output format. Provide all the information
