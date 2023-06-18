@@ -28,12 +28,14 @@
     create s3-bucket name-sharfuddin-kops-create
 8 : Create a hosted zone in Route53 - For the DNS, i am using Godaddy. This is where my DNS(sharfuddin.online) is registered.
 9 : Add the NS records from Route53 hosted zone to Godaddy server records.
+
 10: Install kubectl using the below link
-     https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+    https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
     curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
     chmod +x kubectl
     sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-
+    kubectl version --client
 
 13 : Generate SSH keys by running the below command
     ssh-keygen -f .ssh/id_rsa
