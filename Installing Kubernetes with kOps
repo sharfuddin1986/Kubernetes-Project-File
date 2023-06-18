@@ -23,16 +23,16 @@
 5 : Login to AWS from the Kops EC2 instance using the below command
     aws configure
     Put access key and secret key then region eas-us-1 and ouput format is json
-
-
-
-
-8 : The above command will prompt for access key, secret access key, region and output format. Provide all the information
-9 : Create an S3 bucket - This bucket will be used to store the cluster related information
-10 : Create a hosted zone in Route53 - For the DNS, i am using Hostinger. This is where my DNS is registered.
-11 : Add the NS records from Route53 hosted zone to Hostinger server records.
-12 : Install kubectl using the below link
+6 : The above command will prompt for access key, secret access key, region and output format. Provide all the information
+7 : Create an S3 bucket - This bucket will be used to store the cluster related information
+    create s3-bucket name-sharfuddin-kops-create
+8 : Create a hosted zone in Route53 - For the DNS, i am using Godaddy. This is where my DNS(sharfuddin.online) is registered.
+9 : Add the NS records from Route53 hosted zone to Godaddy server records.
+10: Install kubectl using the below link
      https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+
+
 13 : Generate SSH keys by running the below command
     ssh-keygen -f .ssh/id_rsa
 14 : Run the below example command to create the cluster. NOTE : You will have to update the command with your specific changes
