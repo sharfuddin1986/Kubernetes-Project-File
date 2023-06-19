@@ -6,3 +6,6 @@ Command
 1- kubectl apply -f <yml file name>           =   For New pod creation
 2- kubectl get pods                           =   Pod list
 3- kubectl describe pod <pod name>            =   All pod detail
+4  kubeclt -f service.yml                     =   create service
+5- kubectl get services                       =   All services list
+5- kubectl describe service <service-pod-example>
