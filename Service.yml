@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: service-example
+  name: service-pod-example
 spec:
   ports:
-  - port: 8080
-    targetPort: tomcatport
+  - port: 80
+    targetPort: 
     protocol: TCP
   selector:
     app: first-pod-example
