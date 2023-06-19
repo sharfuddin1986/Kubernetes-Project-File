@@ -18,5 +18,5 @@ spec:
       - name: nginx-deployment-example
         image: nginx
         ports:
-        - name: nginx-deployment
+        - name: nginx-deploy
           containerPort: 80
