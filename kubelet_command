@@ -10,3 +10,4 @@ Command
 5- kubectl get services                       =   All services list
 6- kubectl describe service <service name>    =   service detail pod is connected with services
 7- kubectl logs <pod name>                    =   Pod logs
+8- kubectl delete pod <pod name>              =   Delete the pod
