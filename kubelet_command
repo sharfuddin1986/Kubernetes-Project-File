@@ -9,4 +9,4 @@ Command
 4  kubeclt -f service.yml                     =   create service
 5- kubectl get services                       =   All services list
 6- kubectl describe service <service name>    =   service detail pod is connected with services
-7- 
+7- kubectl logs <pod name>                    =   Pod logs
