@@ -9,4 +9,4 @@ spec:
     protocol: TCP
   selector:
     app: first-pod-example
-  type: nodePort
+  type: NodePort
