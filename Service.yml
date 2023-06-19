@@ -5,8 +5,8 @@ metadata:
 spec:
   ports:
   - port: 80
-    targetPort: 
+    targetPort:  nginx-port
     protocol: TCP
   selector:
     app: first-pod-example
-  type: LoadBalancer
+  type: nodePort
