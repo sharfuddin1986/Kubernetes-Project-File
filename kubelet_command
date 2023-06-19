@@ -1,0 +1,8 @@
+############################       Kubelet command     ###########################################
+
+
+Command
+
+1- kubectl apply -f <yml file name>           =   For New pod creation
+2- kubectl get pods                           =   Pod list
+3- kubectl describe pod <pod name>            =   All pod detail
