@@ -17,3 +17,27 @@ kubectl edit service/kubernetes-dashboard -n kubernetes-dashboard
  k8s-app: kubernetes-dashboard
  sessionAffinity: None
  type: NodePort 
+
+kubectl get pods --all-namespaces
+
+#Whenever you modify the service type, you must delete the pod. Once deleted, Kubernetes will create a new one for you with the updated service type to access the entire network.
+kubectl delete pod kubernetes-dashboard-78c79f97b4-gjr2l -n kubernetes-dashboard
+
+kubectl get svc --all-namespaces
+
+kubectl create -f dashboard_user.yml
+
+kubectl -n kubernetes-dashboard create token admin-user
+
+Open your favorite browser and navigate to https://kuberntes-node:NodePort/#/login to access the Kubernetes dashboard. Example - https://3.86.185.35:31315/#/login
+
+
+
+
+
+
+
+
+
+
+
