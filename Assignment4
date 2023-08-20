@@ -6,4 +6,29 @@
 
 ######################    Follow the below command to execute the Assignment      ############################################
 Step-1    
-        nano nginx-deployment.yaml
+        nano nginx-service.yaml
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx
+  type: NodePort  # Change this to ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
+
+Step-2
+        kubectl apply -f nginx-service.yaml
+        kubectl get service nginx-service
+
+
+NAME            TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)   AGE
+nginx-service   ClusterIP   10.106.108.7   <none>        80/TCP    51m
+
+
