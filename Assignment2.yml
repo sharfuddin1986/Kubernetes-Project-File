@@ -2,6 +2,37 @@
                                 2. Create a service of type NodePort for NGINX deployment
                                 3. Check the NodePort service on a browser to verify
 
+######################    Follow the below command to execute the Assignment      ############################################
+Step-1    
+        nano nginx-deployment.yaml
+
+
+     apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx:latest
+
+
+
+       kubectl apply -f nginx-deployment.yaml
+
+
+step-2       
+
+        nano nginx-service.yaml
 
 
 
@@ -19,10 +50,25 @@ spec:
       targetPort: 80
 
 
-######################    Follow the below command to execute the Assignment      ############################################
+      kubectl apply -f nginx-service.yaml
+      kubectl get service nginx-service
+
+
+NAME            TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+nginx-service   NodePort   10.106.108.7   <none>        80:32145/TCP   42s
+
+
+The output will display the NodePort that's been assigned. Use any of the worker node's IP addresses 
+and the NodePort to access the NGINX service in a browser or using tools like 
+
+
+example-
+        http://18.207.198.83:32145/
+        https://54.80.223.103:32145/
+
+
+
      
-     
-   1-  nano nginx-service.yaml
-   2-  paste the yml file 
-   3-  
+ 
+
      
