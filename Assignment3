@@ -1,5 +1,7 @@
-##############################  1. Use the previous deployment    #############################
-                                2. Change the replicas to 5 for the deployment
+######################################       Assignment-3    #################################
+
+                                1. Use the previous deployment
+                                2. Change the replicas 3 to 5 for the deployment
                                 
 
 ######################    Follow the below command to execute the Assignment      ############################################
