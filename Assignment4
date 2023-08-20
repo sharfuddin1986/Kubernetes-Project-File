@@ -1,1 +1,9 @@
+##############################      Assignment-4   #############################
+                                
+                           1.  Use the previous deployment
+                           2.  Change the service type to ClusterIP
 
+
+######################    Follow the below command to execute the Assignment      ############################################
+Step-1    
+        nano nginx-deployment.yaml
