@@ -1,1 +1,3 @@
 
+1. Use the previous deployment
+2. Change the replicas to 5 for the deployment
