@@ -39,7 +39,9 @@
 
 11 : Generate SSH keys by running the below command
      ssh-keygen -f .ssh/id_rsa
-12 : Run the below example command to create the cluster. NOTE : You will have to update the command with your specific changes
+12 : Run the below example command to create the cluster. 
+
+NOTE : You will have to update the command with your specific changes
      kops create cluster --name=kubernetes.sharfuddin.online --state=s3://sharfuddin-kops --zones=us-east-1a --node-count=1 --node-size=t2.micro --master-size=t2.medium --dns-zone=kubernetes.sharfuddin.online
 13 : Running the above command will generate a preview of all the resources that Kops will create. Once you are okay with the preview, run the below command to create those resources. Update the S3 bucket to your S3 bucket.
    
