@@ -1,0 +1,57 @@
+
+############################################      Assignment-1    ####################################
+
+                                1. Deploy a Kubernetes cluster for 3 nodes    
+                                2. Create a NGINX deployment of 3 replicas
+                            
+
+######################    Follow the below command to execute the Assignment      ############################################
+Step-1    
+        Deploy a kubernetes cluster with Kubeadm Ec2 instanace with T2 medium
+        Kubeadm cluster installation have seprate file attach. ( file name is kubeadm_installation  )
+        Node machine need to run script (  file name is install.sh  )
+        After that  join the  Node 
+
+        kubeadm join 172.31.90.84:6443 --token i3i8qy.s8586ur6zqlk0n0r \
+                  --discovery-token-ca-cert-hash sha256:8e8620b7c4d1b813f4e911a7ca51c53876d391ef224808f6907f1a22dae2c57d
+
+
+ Step-2
+        Take remote Kubeadm cluster
+        nano nginx-deployment.yml
+        
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx:latest
+
+
+Step-3
+         kubectl create -f nginx-deployment.yaml
+
+         kubectl apply -f nginx-deployment.yaml
+
+         kubectl get deployments
+
+         kubectl get pods -o wide
+ 
+NAME                                READY   STATUS    RESTARTS   AGE    IP                NODE               NOMINATED NODE   READINESS GATES
+nginx-deployment-5bb85d69d8-78vxt   1/1     Running   0          2m3s   192.168.228.134   ip-172-31-34-197   <none>           <none>
+nginx-deployment-5bb85d69d8-lt82j   1/1     Running   0          2m3s   192.168.241.65    ip-172-31-41-18    <none>           <none>
+nginx-deployment-5bb85d69d8-wqtzm   1/1     Running   0          2m3s   192.168.122.66    ip-172-31-45-126   <none>           <none>
+
+
+         
