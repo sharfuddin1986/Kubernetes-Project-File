@@ -10,7 +10,11 @@ Step-1
         Deploy a kubernetes cluster with Kubeadm Ec2 instanace with T2 medium
         Kubeadm cluster installation have seprate file attach. ( file name is kubeadm_installation  )
         Node machine need to run script (  file name is install.sh  )
-        After join Node 
+        After that  join the  Node 
+
+        kubeadm join 172.31.90.84:6443 --token i3i8qy.s8586ur6zqlk0n0r \
+                  --discovery-token-ca-cert-hash sha256:8e8620b7c4d1b813f4e911a7ca51c53876d391ef224808f6907f1a22dae2c57d
+                  
          
 apiVersion: apps/v1
 kind: Deployment
