@@ -1,3 +1,15 @@
+
+############################################      Assignment-1    ####################################
+
+                                1. Deploy a Kubernetes cluster for 3 nodes    
+                                2. Create a NGINX deployment of 3 replicas
+                            
+
+######################    Follow the below command to execute the Assignment      ############################################
+Step-1    
+        Deploy a kubernetes cluster with Kubeadm Ec2 instanace with T2 medium
+
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
