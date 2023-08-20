@@ -14,8 +14,12 @@ Step-1
 
         kubeadm join 172.31.90.84:6443 --token i3i8qy.s8586ur6zqlk0n0r \
                   --discovery-token-ca-cert-hash sha256:8e8620b7c4d1b813f4e911a7ca51c53876d391ef224808f6907f1a22dae2c57d
-                  
-         
+
+
+ Step-2
+        Take remote Kubeadm cluster
+        nano nginx-deployment.yml
+        
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -33,3 +37,7 @@ spec:
       containers:
         - name: nginx-container
           image: nginx:latest
+
+
+
+          
