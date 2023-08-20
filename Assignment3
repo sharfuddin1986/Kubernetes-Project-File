@@ -1,3 +1,47 @@
+##############################  1. Use the previous deployment    #############################
+                                2. Change the replicas to 5 for the deployment
+                                
 
-1. Use the previous deployment
-2. Change the replicas to 5 for the deployment
+######################    Follow the below command to execute the Assignment      ############################################
+Step-1 
+
+    nano nginx-deployment.yaml
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3  # Change this to 5
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx:latest
+
+
+Step-2
+   kubectl apply -f nginx-deployment.yaml
+   kubectl get deployment nginx-deployment
+   kubectl get pods -l app=nginx
+
+NAME                                READY   STATUS    RESTARTS   AGE
+nginx-deployment-5bb85d69d8-cvsfb   1/1     Running   0          31m
+nginx-deployment-5bb85d69d8-j4p9m   1/1     Running   0          59s
+nginx-deployment-5bb85d69d8-j94ls   1/1     Running   0          31m
+nginx-deployment-5bb85d69d8-ph6g9   1/1     Running   0          31m
+nginx-deployment-5bb85d69d8-rp4bg   1/1     Running   0          59s
+
+
+
+
+
+
+
