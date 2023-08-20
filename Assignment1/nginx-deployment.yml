@@ -9,7 +9,9 @@
 Step-1    
         Deploy a kubernetes cluster with Kubeadm Ec2 instanace with T2 medium
         Kubeadm cluster installation have seprate file attach. ( file name is kubeadm_installation  )
-
+        Node machine need to run script (  file name is install.sh  )
+        After join Node 
+         
 apiVersion: apps/v1
 kind: Deployment
 metadata:
