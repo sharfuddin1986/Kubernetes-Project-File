@@ -1,4 +1,6 @@
-##############################  1. Use the previous deployment    #############################
+############################################      Assignment-2    ####################################
+
+                                1. Use the previous deployment    
                                 2. Create a service of type NodePort for NGINX deployment
                                 3. Check the NodePort service on a browser to verify
 
