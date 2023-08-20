@@ -39,5 +39,21 @@ spec:
           image: nginx:latest
 
 
+Step-3
+         kubectl create -f nginx-deployment.yaml
+
+         kubectl apply -f nginx-deployment.yaml
+
+         kubectl get deployments
+
+         kubectl get pods -o wide
+ 
+NAME                                READY   STATUS    RESTARTS   AGE    IP                NODE               NOMINATED NODE   READINESS GATES
+nginx-deployment-5bb85d69d8-78vxt   1/1     Running   0          2m3s   192.168.228.134   ip-172-31-34-197   <none>           <none>
+nginx-deployment-5bb85d69d8-lt82j   1/1     Running   0          2m3s   192.168.241.65    ip-172-31-41-18    <none>           <none>
+nginx-deployment-5bb85d69d8-wqtzm   1/1     Running   0          2m3s   192.168.122.66    ip-172-31-45-126   <none>           <none>
+
+
+         
 
           
