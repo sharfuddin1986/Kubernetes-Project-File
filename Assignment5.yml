@@ -12,7 +12,7 @@ Step-1
       nano nginx-deployment.yml
 
 
-apiVersion: apps/v1
+       apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
@@ -32,9 +32,108 @@ spec:
 
 
 
-        kubectl apply -f nginx-deployment.yaml
+        kubectl apply -f nginx-deployment.yml
+
+Step-2
+      nano nginx-service.yml
 
 
-          
+      apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+
+
+
+      kubectl apply -f nginx-service.yaml
+
+
+  Step-3
+        nano apache-deployment.yaml
+
+
+
+        apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: apache
+  template:
+    metadata:
+      labels:
+        app: apache
+    spec:
+      containers:
+        - name: apache
+          image: httpd:latest
+          ports:
+            - containerPort: 80
+
+
+       kubectl apply -f apache-deployment.yml
+
+  Step-4
+        nano ingress-apache.yml
+
+
+         apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: apache-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /apache
+            pathType: Prefix
+            backend:
+              service:
+                name: apache-service
+                port:
+                  number: 80
+
+        kubectl apply -f ingress-apache.yml
+
+
+
+  Step-55
+        nano ingress-apache.yml
+
+
+      apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+spec:
+  rules:
+    - host: nginx.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-service
+                port:
+                  number: 80
+
+         kubectl apply -f ingress-nginx.yaml
+
+        
+
+
+ 
 
       
