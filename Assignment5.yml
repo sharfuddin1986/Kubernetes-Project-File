@@ -9,3 +9,5 @@
 
 ######################    Follow the below command to execute the Assignment      ############################################
 Step-1    
+      nano nginx-deployment.yml
+      
