@@ -53,11 +53,11 @@ spec:
 
 
 
-      kubectl apply -f nginx-service.yaml
+      kubectl apply -f nginx-service.yml
 
 
   Step-3
-        nano apache-deployment.yaml
+        nano apache-deployment.yml
 
 
 
@@ -84,7 +84,31 @@ spec:
 
        kubectl apply -f apache-deployment.yml
 
-  Step-4
+
+
+
+  step-4
+         nano apache-service.yml
+
+         apiVersion: v1
+kind: Service
+metadata:
+  name: apache-service
+spec:
+  selector:
+    app: apache
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+
+
+        kubectl apply -f apache-service.yml
+
+    
+
+  Step-5
         nano ingress-apache.yml
 
 
@@ -109,7 +133,7 @@ spec:
 
 
   Step-5
-        nano ingress-apache.yml
+        nano ingress-nginx.yml
 
 
       apiVersion: networking.k8s.io/v1
