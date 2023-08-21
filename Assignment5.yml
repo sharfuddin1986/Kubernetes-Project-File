@@ -1,0 +1,11 @@
+
+############################################      Assignment-5    ####################################
+
+                                  1. Use the previous deployment
+                                  2. Deploy an NGINX deployment of 3 replicas
+                                  3. Create an NGINX service of type ClusterIP
+                                  4. Create an ingress service/ Apache to Apache service/ NGINX to NGINX service
+                          
+
+######################    Follow the below command to execute the Assignment      ############################################
+Step-1    
